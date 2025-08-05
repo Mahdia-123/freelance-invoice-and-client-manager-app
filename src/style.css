@@ -1,0 +1,87 @@
+body {
+  font-family: "PT Mono", monospace;
+  margin: 0 auto;
+  background: #f7f7f7;
+}
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+.client-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 10%);
+  margin: 20px 0;
+}
+h2 {
+  font-size: 35px;
+  font-weight: bolder;
+  margin-bottom: 15px;
+  color: #79a8a9;
+}
+form {
+  display: flex;
+  justify-content: space-between;
+}
+input {
+  border: 1px solid #3c575ad0;
+  border-radius: 8px;
+  width: 20%;
+  padding: 6px;
+  font-size: 14px;
+}
+.btn {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: white;
+  background: #79a8a9;
+  font-size: 16px;
+  font-weight: bold;
+}
+.btn:hover {
+  color: white;
+  background: #3c575ad0;
+  transition: transform 0.03ms all ease-in-out;
+  transform: scale(1.05);
+}
+.client {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: roboto;
+}
+.btn-client {
+  padding: 10px 50px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: white;
+  background: #79a8a9;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.btn-client:hover {
+  color: white;
+  background: #3c575ad0;
+  transition: transform 0.03ms all ease-in-out;
+  transform: scale(1.05);
+}
+.button {
+  display: flex;
+  justify-content: center;
+}
+select {
+  padding: 10px 25px;
+  border: #3c575ad0 1px solid;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #757575;
+}
+.dueDate {
+  font-size: 14px;
+  color: #757575;
+}
