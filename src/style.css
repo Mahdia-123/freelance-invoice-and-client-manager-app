@@ -23,39 +23,32 @@ h2 {
   margin-bottom: 15px;
   color: #79a8a9;
 }
-form {
-  display: flex;
-  justify-content: space-between;
+
+.grid-4-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
 }
-input {
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
   border: 1px solid #3c575ad0;
   border-radius: 8px;
-  width: 20%;
-  padding: 6px;
-  font-size: 14px;
+  box-sizing: border-box;
 }
-.btn {
-  padding: 10px 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  color: white;
-  background: #79a8a9;
-  font-size: 16px;
-  font-weight: bold;
-}
-.btn:hover {
-  color: white;
-  background: #3c575ad0;
-  transition: transform 0.03ms all ease-in-out;
-  transform: scale(1.05);
-}
+
 .client {
   font-size: 20px;
   font-weight: bold;
   font-family: roboto;
 }
 .btn-client {
-  padding: 10px 50px;
+  padding: 10px 80px;
   border: 1px solid #ddd;
   border-radius: 8px;
   color: white;
@@ -70,18 +63,37 @@ input {
   transition: transform 0.03ms all ease-in-out;
   transform: scale(1.05);
 }
+
 .button {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
-select {
-  padding: 10px 25px;
-  border: #3c575ad0 1px solid;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #757575;
+
+.btn-client {
+  width: fit-content;
 }
+
 .dueDate {
   font-size: 14px;
   color: #757575;
+}
+footer {
+  text-align: center;
+  font-size: 14px;
+}
+footer a {
+  color: #79a8a9;
+}
+@media (max-width: 950px) {
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  .client {
+    font-size: 14px;
+  }
 }

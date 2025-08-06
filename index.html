@@ -32,21 +32,34 @@
       <section class="client-section" id="client">
         <h2>Add Client</h2>
         <form id="clientForm">
-          <input
-            type="text"
-            id="clientName"
-            placeholder="Client Name.."
-            required
-          />
-          <input
-            type="email"
-            id="clientEmail"
-            placeholder="Client Email.."
-            required
-          />
-          <input type="text" id="clientCompany" placeholder="Company.." />
-          <input type="tel" id="clientPhone" placeholder="Phone.." />
-          <button type="submit" class="btn">Add Client</button>
+          <div class="grid grid-4-columns">
+            <div>
+              <input
+                type="text"
+                id="clientName"
+                placeholder="Client Name.."
+                required
+              />
+            </div>
+            <div>
+              <input
+                type="email"
+                id="clientEmail"
+                placeholder="Client Email.."
+                required
+              />
+            </div>
+            <div>
+              <input type="text" id="clientCompany" placeholder="Company.." />
+            </div>
+            <div>
+              <input type="tel" id="clientPhone" placeholder="Phone.." />
+            </div>
+          </div>
+
+          <div class="button">
+            <button type="submit" class="btn-client">Add Client</button>
+          </div>
         </form>
       </section>
       <section class="client-section">
@@ -72,23 +85,27 @@
       <section class="client-section">
         <h2>Add Invoice</h2>
         <form id="invoiceForm">
-          <select id="invoiceClient" required>
-            <option value="">Select Client</option>
-          </select>
-          <input
-            type="number"
-            id="invoiceAmount"
-            placeholder="Amount"
-            required
-            min="0"
-            step="0.01"
-          />
-          <input type="date" id="invoiceDueDate" required class="dueDate" />
-          <select id="invoiceStatus" required>
-            <option value="unpaid">Unpaid</option>
-            <option value="paid">Paid</option>
-          </select>
-          <button type="submit" class="btn">Add Invoice</button>
+          <div class="grid grid-4-columns">
+            <select id="invoiceClient" required>
+              <option value="">Select Client</option>
+            </select>
+            <input
+              type="number"
+              id="invoiceAmount"
+              placeholder="Amount"
+              required
+              min="0"
+              step="0.01"
+            />
+            <input type="date" id="invoiceDueDate" required class="dueDate" />
+            <select id="invoiceStatus" required>
+              <option value="unpaid">Unpaid</option>
+              <option value="paid">Paid</option>
+            </select>
+          </div>
+          <div class="button">
+            <button type="submit" class="btn-client">Add Invoice</button>
+          </div>
         </form>
       </section>
       <section class="client-section">
@@ -117,6 +134,24 @@
           </div>
         </div>
       </section>
+      <footer>
+        <p class="mt-5">
+          This website was coded by Mahdia Khamoosh and is
+          <span
+            ><a
+              href="https://github.com/Mahdia-123/noor-high-school"
+              target="_blank"
+              >open-sourced</a
+            ></span
+          >
+          and hosted on
+          <span
+            ><a href="https://noor-high-school.netlify.app/" target="_blank"
+              >Netlify</a
+            ></span
+          >
+        </p>
+      </footer>
     </div>
     <script src="src/script.js"></script>
   </body>
