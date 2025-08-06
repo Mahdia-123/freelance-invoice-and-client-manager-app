@@ -41,10 +41,23 @@ select {
   border-radius: 8px;
   box-sizing: border-box;
 }
+.dashboard-section {
+  background-image: url("../images/realistic-design-technology-background_23-2148426705.avif");
+  padding: 80px 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  line-height: 2;
+  border-radius: 8px;
+}
 .dashboard {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   font-family: roboto;
+  margin-top: 20px;
+}
+.text-center {
+  color: white;
 }
 .client {
   font-size: 16px;
@@ -101,12 +114,18 @@ footer a:hover {
 }
 @media (max-width: 950px) {
   h1 {
-    font-size: 30px;
+    font-size: 25px;
   }
   h2 {
     font-size: 20px;
   }
   .client {
     font-size: 14px;
+  }
+  .dashboard {
+    font-size: 12px;
+  }
+  .dashboard-section {
+    padding: 20px 20px;
   }
 }
