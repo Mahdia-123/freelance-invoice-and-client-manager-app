@@ -43,7 +43,12 @@ select {
 }
 
 .client {
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: roboto;
+}
+.invoices {
+  font-size: 16px;
   font-weight: bold;
   font-family: roboto;
 }
@@ -56,6 +61,7 @@ select {
   font-size: 16px;
   font-weight: bold;
   margin-top: 20px;
+  font-family: "PT Mono", monospace;
 }
 .btn-client:hover {
   color: white;
