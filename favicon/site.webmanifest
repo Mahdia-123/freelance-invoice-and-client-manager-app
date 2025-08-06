@@ -7,7 +7,7 @@
   "theme_color": "#79a8a9",
   "icons": [
     {
-      "src": "web-app-manifest-192x192.png",
+      "src": "assets/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
