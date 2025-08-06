@@ -12,27 +12,62 @@ function saveData() {
   localStorage.setItem("invoices", JSON.stringify(invoices));
 }
 
+// New: Render dashboard summary
+function renderSummary() {
+  const totalClients = clients.length;
+  const totalInvoices = invoices.length;
+  const totalInvoiceValue = invoices.reduce((sum, inv) => sum + inv.amount, 0);
+  const paidInvoices = invoices.filter(
+    (inv) => inv.status.toLowerCase() === "paid"
+  ).length;
+  const unpaidInvoices = invoices.filter(
+    (inv) => inv.status.toLowerCase() !== "paid"
+  ).length;
+
+  document.getElementById(
+    "totalClients"
+  ).innerHTML = `<div class="d-flex justify-content-between">
+      <div>Total number of clients:</div>
+      <div>${totalClients}</div>
+    </div>`;
+
+  document.getElementById(
+    "totalInvoices"
+  ).innerHTML = `<div class="d-flex justify-content-between">
+      <div>Total number of invoices:</div>
+      <div>${totalInvoices}</div>
+    </div>`;
+
+  document.getElementById(
+    "totalInvoiceValue"
+  ).innerHTML = `<div class="d-flex justify-content-between">
+      <div>Total value of all invoices:</div>
+      <div>$${totalInvoiceValue.toFixed(2)}</div>
+    </div>`;
+
+  document.getElementById("paidVsUnpaid").innerHTML = `
+      <div class="d-flex justify-content-between">
+        <div>Invoices Status:</div>
+        <div class="d-flex flex-column align-items-end">
+          <div>Paid: ${paidInvoices}</div>
+          <div>Unpaid: ${unpaidInvoices}</div>
+        </div>
+      </div>
+    `;
+}
+
 function renderClients() {
   if (clients.length) {
     clientsList.innerHTML = clients
       .map((c, i) => {
-        let companyText;
-        if (c.company) {
-          companyText = c.company;
-        } else {
-          companyText = `<div>
-  <p style="opacity: 0.6; color:red;">No Company</p>
-</div>`;
-        }
-        let phoneText;
-        if (c.phone) {
-          phoneText = c.phone;
-        } else {
-          phoneText = `<div>
-  <p style="opacity: 0.6; color:red;">No Phone number</p>
-</div>`;
-        }
-        return `  <div class="client">
+        let companyText = c.company
+          ? c.company
+          : `<div><p style="opacity: 0.6; color:red;">No Company</p></div>`;
+        let phoneText = c.phone
+          ? c.phone
+          : `<div><p style="opacity: 0.6; color:red;">No Phone number</p></div>`;
+        return `  
+          <div class="client">
             <div class="name d-flex justify-content-between">
               <div>Name:</div>
               <div>${c.name}</div>
@@ -50,12 +85,13 @@ function renderClients() {
               <div>${phoneText}</div>
             </div>
           </div>
-         <div class="button">   <button onClick="deleteClient(${i})" class="btn-client">Delete</button></div>
-        </div>`;
+          <div class="button">
+            <button onClick="deleteClient(${i})" class="btn-client">Delete</button>
+          </div>`;
       })
       .join("");
   } else {
-    clientsList.innerHTML = " <p> No client yet.</p>";
+    clientsList.innerHTML = "<p>No client yet.</p>";
   }
 
   if (clients.length) {
@@ -67,7 +103,10 @@ function renderClients() {
   } else {
     invoiceClientSelect.innerHTML = '<option value="">Select Client</option>';
   }
+
+  renderSummary(); // update dashboard
 }
+
 function renderInvoices() {
   if (invoices.length) {
     invoicesList.innerHTML = invoices
@@ -75,37 +114,37 @@ function renderInvoices() {
         const client = clients[inv.clientIndex];
         const clientName = client
           ? client.name
-          : `<div>
-  <p style="opacity: 0.6; color:red;">Deleted Client</p>
-</div>`;
+          : `<div><p style="opacity: 0.6; color:red;">Deleted Client</p></div>`;
 
         return ` 
-        <div class="invoices">
-          <div class="name d-flex justify-content-between">
-            <div>Client Name:</div>
-            <div>${clientName}</div>
-          </div>
-          <div class="amount d-flex justify-content-between">
-            <div>Amount:</div>
-            <div>$ ${inv.amount.toFixed(2)}</div>
-          </div>
-          <div class="phone d-flex justify-content-between">
-            <div>Due:</div>
-            <div>${inv.dueDate}</div>
-          </div>
-          <div class="phone d-flex justify-content-between">
-            <div>Status:</div>
-            <div>${inv.status}</div>
-          </div>
-          <div class="button">
-            <button onClick="deleteInvoice(${i})" class="btn-client">Delete</button>
-          </div>
-        </div>`;
+          <div class="invoices">
+            <div class="name d-flex justify-content-between">
+              <div>Client Name:</div>
+              <div>${clientName}</div>
+            </div>
+            <div class="amount d-flex justify-content-between">
+              <div>Amount:</div>
+              <div>$ ${inv.amount.toFixed(2)}</div>
+            </div>
+            <div class="phone d-flex justify-content-between">
+              <div>Due:</div>
+              <div>${inv.dueDate}</div>
+            </div>
+            <div class="phone d-flex justify-content-between">
+              <div>Status:</div>
+              <div>${inv.status}</div>
+            </div>
+            <div class="button">
+              <button onClick="deleteInvoice(${i})" class="btn-client">Delete</button>
+            </div>
+          </div>`;
       })
       .join("");
   } else {
     invoicesList.innerHTML = "<p>NO invoice yet</p>";
   }
+
+  renderSummary(); // update dashboard
 }
 
 clientForm.addEventListener("submit", (e) => {
